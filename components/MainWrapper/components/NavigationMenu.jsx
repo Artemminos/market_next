@@ -16,6 +16,11 @@ export const NavigationMenu = () => {
                     Компы
                 </Link>
             </Menu.Item>
+            <Menu.Item icon={<RiseOutlined/>}>
+                <Link href={'example'}>
+                    Компы
+                </Link>
+            </Menu.Item>
         </Menu>
     );
 };
