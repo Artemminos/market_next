@@ -1,11 +1,13 @@
 import React from 'react';
 import {Card, Space} from 'antd';
 import {EditOutlined, DeleteOutlined, PlusOutlined} from '@ant-design/icons';
-
+import { useRouter } from 'next/router'
 const {Meta} = Card;
 
 
 const Computers = ({data}) => {
+    const router = useRouter()
+    console.log(router.query)
     const renderSomeContent = (type, value) => {
         let result;
         switch (type) {
