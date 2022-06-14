@@ -26,6 +26,11 @@ export const NavigationMenu = () => {
                     Query
                 </Link>
             </Menu.Item>
+            <Menu.Item icon={<RiseOutlined/>}>
+                <Link href={'/table'}>
+                    Table
+                </Link>
+            </Menu.Item>
         </Menu>
     );
 };
