@@ -1,0 +1,9 @@
+.slider{
+  display: flex;
+  width: 500px;
+  overflow-x: scroll;
+  &__image{
+    height: 500px;
+    width: 500px;
+  }
+}

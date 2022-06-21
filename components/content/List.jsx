@@ -7,6 +7,7 @@ const data = [
     'Man charged over missing wedding girl.',
     'Los Angeles battles huge wildfires.',
 ];
+
 const ListComponent = () => {
     return (
         <div>
@@ -26,19 +27,3 @@ const ListComponent = () => {
 };
 
 export default ListComponent;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
