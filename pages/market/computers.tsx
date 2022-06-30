@@ -1,18 +1,46 @@
 import React from 'react';
-import {Card, Space} from 'antd';
+import {Card, Space, Input} from 'antd';
 import {EditOutlined, DeleteOutlined, PlusOutlined} from '@ant-design/icons';
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
+import {ArrowFunctionExpression} from "@typescript-eslint/types/dist/generated/ast-spec";
+
 const {Meta} = Card;
 
+interface IShortDesc {
+    memory: string,
+    video: string,
+    color: string
+}
 
-const Computers = ({data}) => {
+interface IComputersData {
+    name: string,
+    cost: string,
+    short_desc: IShortDesc
+    image: string,
+    _id: string,
+    callback?: (f: string, s: number) => unknown
+}
+
+interface IProps {
+    data: IComputersData[];
+
+}
+
+const enum EContentType {
+    memory = 'memory',
+    video = 'video',
+    color = 'color',
+    weight = 'weight',
+    size = 'size',
+}
+
+type TRenderSomeContent = (type: string, value: string) => string
+const Computers: React.FC<IProps> = ({data}) => {
     const router = useRouter()
-    console.log(router.query)
-    const renderSomeContent = (type, value) => {
-        let result;
+    const renderSomeContent: TRenderSomeContent = (type, value) => {
+        let result: string;
         switch (type) {
             case 'memory': {
-
                 result = value + ' ' + 'memory'
                 break
             }
@@ -39,12 +67,11 @@ const Computers = ({data}) => {
         }
         return result
     }
-    const [computersList, setComputersList] = React.useState([]);
+    const [computersList, setComputersList] = React.useState<IComputersData[]>([]);
 
     React.useEffect(() => {
         setComputersList(data)
     }, [])
-
 
     const createAnotherObj = (item) => {
         //const newArr = [...computersList,item]
@@ -101,7 +128,15 @@ const Computers = ({data}) => {
                     </Card>
                 )
             })}
+            <Input onChange={(event) => {
+                console.log(event.target.value)
+            }}/>
+            <div onClick={(event) => {
+                const som = event as React.MouseEvent<HTMLDivElement>
 
+            }}>
+
+            </div>
         </Space>
     );
 };

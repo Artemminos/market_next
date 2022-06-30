@@ -12,6 +12,7 @@ interface IUser {
     name: string;
     surName: string;
     male?: male;
+    test?:IPermissions
 }
 
 enum Direction {
@@ -21,6 +22,8 @@ enum Direction {
     Right,
 }
 
+
+
 const turnFN = (direction: Direction): string[] => {
     return ['dsadas']
 }
@@ -29,7 +32,6 @@ turnFN(Direction.Down)
 interface IAdmin<Type = any> extends Omit<IUser, 'male' | 'surName'> {
     permissions: Type[]
 }
-
 //https://www.typescriptlang.org/docs/handbook/utility-types.html
 
 let variable: string | string[] = 'art'
@@ -60,7 +62,11 @@ const userList: IUser[] = [
         name: 'vlad',
         surName: 'min'
     },
-
+    {
+        name: 'art',
+        surName: '123',
+        male: 'woman'
+    }
 ]
 const adminList: IAdmin<IPermissions>[] = [
     {
@@ -122,6 +128,7 @@ const TestPage = () => {
             }}
             />
             <CustomBtn onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                console.log(event.target)
             }}/>
             {users.map((item, index) => {
                 return <div>
